@@ -1,0 +1,224 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>大喜利村</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ここにサイト説明を入れます">
+<link rel="stylesheet" href="{% static 'agendapp/css/style.css' %}">
+</head>
+
+<body>
+
+<div id="container">
+
+<div id="contents">
+
+<header>
+<!--ヘッダー中央コンテンツ-->
+<div id="header-center">
+<p><a href="{% url 'agendapp' %}"><img src="{% static 'agendapp/images/aaa.png' %}" alt=""></a></p>
+</div>
+
+<div id="f-size">
+    <nav class="navbar navbar-dark bg-success sticky-top">
+        <div class="navbar-nav d-flex flex-row">
+            {% if request.user.is_authenticated %}
+            <a class="nav-link mx-3" href="{% url 'accounts:logout' %}">ログアウト</a>
+            {% else %}
+            <a class="nav-link mx-3" href="{% url 'accounts:login' %}?next={{ request.path }}">ログイン</a>
+            <a class="nav-link mx-3" href="{% url 'accounts:signup' %}">会員登録</a>
+            {% endif %}
+        </div>        
+    </nav>
+</div>
+
+</header>
+<!--開閉ブロック-->
+<div id="menubar">
+
+    <nav>
+    <ul>
+    <!-- チャットgptのcssを適応させつつdjangoも使う -->
+    <li>
+        <form id="odaiForm1" method="get" action="{% url 'odai' %}">
+            {% csrf_token %}
+            <input type="hidden" name="cate" value="写真">
+            <input type="submit" value="写真でひとこと" style="display: none;">
+        </form>
+        <a href="#" onclick="document.getElementById('odaiForm1').submit(); return false;">写真でひとこと</a>
+    </li>
+    <!-- 大矢さんが書いてくれたやつ     -->
+    <!-- <li><form method="get" action="{% url 'odai' %}" >{% csrf_token %}
+            <input type="hidden" name="cate" value="写真">
+            <input type="submit" value="写真で一言">
+            <a href="{% url 'odai' %}">写真で一言</a>
+        </form></li> -->
+    <li>
+        <form id="odaiForm2" method="get" action="{% url 'odai' %}">
+            {% csrf_token %}
+            <input type="hidden" name="cate" value="お題">
+            <input type="submit" value="お題でひとこと" style="display: none;">
+        </form>
+        <a href="#" onclick="document.getElementById('odaiForm2').submit(); return false;">お題でひとこと</a>
+    </li>
+    <!-- <li><form method="get" action="{% url 'odai' %}" >{% csrf_token %}
+        <input type="hidden" name="cate" value="お題">
+        <input type="submit" value="お題で一言">
+        <a href="{% url 'odai' %}">お題でひとこと</a>
+    </form></li> -->
+    <li><a href="iryo.html">人気</a></li>
+    <li><a href="event.html">最新</a></li>
+    <li><a href="sangyo.html">最古</a></li>
+    <li><a href="">その他</a>
+        <ul>
+        <li><a href="kuyakusyo.html">まだ</a></li>
+        <li><a href="kuyakusyo.html">サイトが</a></li>
+        <li><a href="kuyakusyo.html">未完成</a></li>
+        <li><a href="kuyakusyo.html">ですが</a></li>
+        <li><a href="kuyakusyo.html">お許しを</a></li>
+        </ul>
+    </li>
+    </ul>
+    </nav>
+    
+    </div>
+
+{% block content %}{% endblock %}
+
+<div class="sub">
+
+	<div class="box1">
+
+	<h3>Instagram</h3>
+
+	<nav>
+	<p>人気回答を投稿します。(写真で一言)</p>
+	<ul class="submenu">
+	<li><a href="">リンクはこちら</a></li>
+	</ul>
+	</nav>
+
+	</div>
+	<!--/.box1-->
+
+	<h3>X</h3>
+
+	<nav>
+	<p>人気回答を投稿します。
+		(フリップ系)</p>
+	<ul class="submenu">
+	<li><a href="">リンクはこちら</a></li>
+	</ul>
+	</nav>
+
+</div>
+
+<!--/.sub-->
+
+</main>
+
+</div>
+<!--/#footermenu-->
+<div id="footer-contents">
+
+    <div class="left">
+    
+        <h3>大喜利村制作会社(株)</h3>
+        <p>〒1243-4567 東京都A市B区CのDEF<br>
+        代表電話：ABC-DEFG-HIJK<br>
+        メール：yeahyeahyeahgmail.com<br>
+        運営時間：月曜日から金曜日の正午から13時まで</p>
+    
+        <table class="week">
+        <caption>お問い合わせ</caption>
+        <tr>
+        <th>日</th>
+        <th>月</th>
+        <th>火</th>
+        <th>水</th>
+        <th>木</th>
+        <th>金</th>
+        <th>土</th>
+        </tr>
+        <tr>
+        <td>×</td>
+        <td>○</td>
+        <td>○</td>
+        <td>○</td>
+        <td>○</td>
+        <td>○</td>
+        <td>×</td>
+        </tr>
+        </table>
+    
+    </div>
+    <!--/.left-->
+    
+    <div class="right">
+    
+        <p>ーー大喜利村までのアクセスーー</p>
+    
+        <div class="iframe-box">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.0448418561778!2d139.74267721573196!3d35.675897837870934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b89b2e1c8b1%3A0x59a123e3d5ac5ab6!2z44CSMTAwLTAwMTQg5p2x5Lqs6YO95Y2D5Luj55Sw5Yy65rC455Sw55S677yR5LiB55uu77yX4oiS77yR!5e0!3m2!1sja!2sjp!4v1545036128899" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    
+    </div>
+    <!--/.right-->
+    
+    </div>
+    <!--/#footer-contents-->
+    
+    <div id="footermenu">
+    <ul>
+    <li class="title">利用方法</li>
+    <li><a href="#">機械音痴の方はsiriにお問い合わせください</a></li>
+    <li><a href="#">追加更新削除など</a></li>
+    </ul>
+    <ul>
+    <li class="title">トラブったら</li>
+    <li><a href="#">度を超えた口論</a></li>
+    <li><a href="#">バグ等</a></li>
+    </ul>
+    <ul>
+    <li class="title">サイトの評価</li>
+    <li><a href="#">忖度はありません</a></li>
+    <li><a href="#">改善案等も募集</a></li>
+    </ul>
+    <ul>
+    <li class="title">その他</li>
+    <li><a href="#">なんでも</a></li>
+    <li><a href="#">聞いてください</a></li>
+    </ul>
+    </div>
+<footer>
+    <small>Copyright&copy; <a href="index.html">東京九州市役所</a> All Rights Reserved.</small>
+    <span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+    </footer>
+    
+    <!--ページの上部へ戻るボタン-->
+    <div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+    
+    </div>
+    <!--/#container-->
+    
+    <!--開閉ボタン（ハンバーガーアイコン）-->
+    <div id="menubar_hdr">
+    <span></span><span></span><span></span>
+    </div>
+    
+    <!--jQueryの読み込み-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!--文字サイズチェンジ用のスクリプト-->
+    <script src="{% static 'agendapp/js/fontSizeChanger.js' %}"></script>
+    
+    <!--このテンプレート専用のスクリプト-->
+    <script src="{% static 'agendapp/js/main.js' %}"></script>
+    
+    <!--スライドショー（slick）-->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="{% static 'agendapp/js/slick.js' %}"></script>
+    </body>
+    </html>

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}写真で一言{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>写真で一言</title>
+</head>
+<body>
+    <h1>写真で一言</h1>
+
+    <h2>写真</h2>
+    
+    <div>
+        <p>{{ topic.title }}</p>
+        <img src="{{ topic.photo.url }}" alt="{{ topic.title }}">
+    </div>	
+    <h2>コメントする</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+  
+    <h2>過去のコメント</h2>
+    <ul>
+        {% for answer in past_answers %}
+            <li>{{ answer.text }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+{% endblock content %}

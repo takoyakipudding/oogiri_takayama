@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="c2">
+
+<div class="main">
+	<section>
+		<div class="list-grid">
+			{% for item in object_list %}
+				<div class="list">
+					<h4 class="bg-color{{ forloop.counter }}"><i class="fas fa-house-user"></i>{{ item.text }}</h4>
+					{% if item.thumbnail and item.thumbnail.file %}
+						<img src="{{ item.thumbnail.url }}">
+					{% else %}
+						<p>No Image</p>
+					{% endif %}
+					<div class="text">
+						<p>{{ item.sample_text }}</p>
+						<a href="{% url 'create' %}">回答&コメント覧</a>
+					</div>
+				</div>
+				{% if forloop.counter|divisibleby:length and not forloop.last %}
+					</div><div class="list">
+				{% endif %}
+			{% endfor %}
+		</div>
+	</section>	
+	
+	<section>
+
+		<h2>素材募集しております。</h2>
+		<p>こちらのフォームより送信いただけます。<br>
+		写真の場合はこちらに添付してください。</p>
+	
+		<div class="list-grid c1">
+	
+		<div class="list">
+		<div class="text">
+		<dl>
+		<dt><a href="item.html">例1</a></dt>
+		<dd>・大不幸中の小幸いなことを言ってください。</dd>
+		<dt><a href="item.html">例2</a></dt>
+		<dd>・このゾンビ育ちは良さそうだな、なぜそう思った？</dd>
+		</dl>
+		</div>
+		</div>
+		</div>	
+	</section>
+	
+</div>
+
+{% endblock %}
+<!-- ウルトラマンが3分も経たず帰らないといけなくなった。どうして？
+あれ？今回のバイキンマン強いぞ？どうして？
+囚人が20年間穴を掘り続けてついに完成したのに脱獄を諦めたその理由とは？
+あれ？今日ののび太くん出来るぞ！どうして？
+この幽霊、礼儀正しいな、どうしてそう思った？
+それお前だったのかい！と言わせてください -->

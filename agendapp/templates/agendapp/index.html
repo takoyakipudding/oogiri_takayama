@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!--/#menubar-->
+
+<!--スライドショー（slick）-->
+<aside class="mainimg">
+<div><img src="{% static 'agendapp/images/he1.png' %}" alt=""></div>
+<div><img src="{% static 'agendapp/images/he2.png' %}" alt=""></div>
+<div><img src="{% static 'agendapp/images/he3.png' %}" alt=""></div>
+</aside>
+
+<div id="message"><a href=""><i class="fas fa-comment-dots"></i>お題募集中</a></div>
+
+<main>
+<section>
+
+<h2>当サイトでのお願い</h2>
+
+<h3>あたたかい場にしたい</h3>
+<p>当サイトは笑いを楽しむ場にしたいので、誹謗中傷、否定的なコメント、過度な下ネタはおやめください。</p>
+<p><strong class="color-check">そのような行為が見られた場合、垢BANしちゃいますわ</strong><br></p>
+<p>当サイトを存分にお楽しみ頂けますよう皆様ご協力の方お願い致します。</p>
+</section>
+
+<section>
+
+<h2>最新のお題</h2>
+
+<dl class="new">
+<dt>2023/08/04<span>その他</span></dt>
+<dd>写真で一言</dd>
+<dt>20XX/00/00<span class="icon-bg1">重要</span></dt>
+<dd>写真で一言</dd>
+<dt>20XX/00/00<span class="icon-bg2">サービス</span></dt>
+<dd>写真で一言</dd>
+<dt>20XX/00/00</dt>
+<dd>写真で一言</dd>
+<dt>20XX/00/00<span>その他</span></dt>
+<dd>写真で一言</dd>
+</dl>
+
+<p class="r"><a href="#" class="btn1">もっと見る<i class="fas fa-arrow-circle-right"></i></a></p>
+
+</section>
+</main>
+
+<main class="c2">
+
+<div class="main">
+
+	<section>
+
+	<h2>今日のベスト回答</h2>
+
+	<dl class="new">
+	<dt>ベスト1</dt>
+	<dd>aaaaa</dd>
+	<dt>ベスト2</dt>
+	<dd>iiiii</dd>
+	<dt>ベスト3</dt>
+	<dd>uuuuu</dd>
+	<dt>ベスト4</dt>
+	<dd>eeeee</dd>
+	<dt>ベスト5</dt>
+	<dd>ooooo</dd>
+	</dl>
+	
+	<p class="r"><a href="#" class="btn1">もっと見る<i class="fas fa-arrow-circle-right"></i></a></p>
+
+	</section>
+
+	<section>
+
+	<h2>当サイトの制作経緯と趣旨</h2>
+	<p>わたくしがとにかく笑いが好きで衝動的にこのテーマに決めて作り始めました。
+		笑いの感覚は人それぞれでその考え方は多種多様なもので奥深く非常に興味深いと思います。
+		是非それぞれの笑いを見つけたり共有したりして楽しんで頂けたらと思います。
+		日々の疲れた脳にひと笑い添えてリフレッシュして頂けたらと思います。
+	</p>
+	</section>
+
+</div>
+{% endblock %}

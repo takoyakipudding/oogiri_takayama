@@ -1,0 +1,22 @@
+<!-- agenda/templates/registration/login.html -->
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- 他のCSSやスタイルのリンクを追加する場合はここに追加 -->
+</head>
+<body>
+    <div class="container">
+        <h2>ログイン</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">ログイン</button>
+        </form>
+    </div>
+    <!-- 他のスクリプトやフッター情報を追加する場合はここに追加 -->
+</body>
+</html>
